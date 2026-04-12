@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sentinel: API",
+      "type": "shell",
+      "command": "npm run dev -w @sentinel/api",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Sentinel: Worker",
+      "type": "shell",
+      "command": "npm run worker -w @sentinel/api",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Sentinel: Web",
+      "type": "shell",
+      "command": "npm run dev -w @sentinel/web",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Sentinel: ML",
+      "type": "shell",
+      "command": ".\\services\\ml\\.venv\\Scripts\\python.exe -m uvicorn app.main:app --reload --port 8100",
+      "options": {
+        "cwd": "${workspaceFolder}\\services\\ml"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Sentinel: Migrate DB",
+      "type": "shell",
+      "command": "powershell -ExecutionPolicy Bypass -File .\\scripts\\db-migrate.ps1",
+      "problemMatcher": []
+    },
+    {
+      "label": "Sentinel: Typecheck",
+      "type": "shell",
+      "command": "npm run typecheck",
+      "problemMatcher": []
+    }
+  ]
+}

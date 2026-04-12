@@ -1,0 +1,3 @@
+import Link from 'next/link';
+const links=[['/dashboard','Overview'],['/services','Services'],['/traces','Traces'],['/logs','Logs'],['/topology','Topology'],['/incidents','Incidents'],['/slos','SLOs'],['/deployments','Deployments'],['/settings/api-keys','API keys']];
+export function Shell({children}:{children:React.ReactNode}){return <div className="shell"><aside className="sidebar"><div className="brand"><span>Sentinel</span> Observability</div><nav className="nav">{links.map(([href,label])=><Link key={href} href={href}>{label}</Link>)}</nav></aside><main className="main">{children}</main></div>}

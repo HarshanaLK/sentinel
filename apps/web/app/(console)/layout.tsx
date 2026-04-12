@@ -1,0 +1,1 @@
+import {cookies} from 'next/headers';import {redirect} from 'next/navigation';import {Shell} from '@/components/Shell';export default async function ConsoleLayout({children}:{children:React.ReactNode}){const jar=await cookies();if(!jar.get('sentinel_token'))redirect('/login');return <Shell>{children}</Shell>}

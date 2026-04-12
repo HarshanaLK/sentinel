@@ -1,0 +1,19 @@
+@api = http://127.0.0.1:4000
+@key = REPLACE_WITH_SEEDED_KEY
+
+### API health
+GET {{api}}/health
+
+### Ingest metric
+POST {{api}}/v1/telemetry/metrics
+Content-Type: application/json
+x-api-key: {{key}}
+
+{"samples":[{"service":"checkout-service","environment":"production","metric":"http.server.duration.p95","value":245,"unit":"ms","labels":{"route":"/checkout"}}]}
+
+### Ingest trace spans
+POST {{api}}/v1/telemetry/spans
+Content-Type: application/json
+x-api-key: {{key}}
+
+{"spans":[{"service":"checkout-service","traceId":"0123456789abcdef0123456789abcdef","spanId":"0123456789abcdef","name":"POST /checkout","kind":"SERVER","durationMs":245,"statusCode":"OK","startedAt":"2026-10-02T05:00:00.000Z","endedAt":"2026-10-02T05:00:00.245Z","attributes":{"http.route":"/checkout"}}]}

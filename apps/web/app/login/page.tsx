@@ -1,0 +1,1 @@
+import {LoginForm} from '@/components/LoginForm';export default function Login(){return <main className="card login"><div className="brand"><span>Sentinel</span> Observability</div><h1>Operator sign in</h1><p className="muted">Use the seeded local account to explore the incident workflow.</p><LoginForm/></main>}

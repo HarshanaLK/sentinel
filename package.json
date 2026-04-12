@@ -1,0 +1,13 @@
+{
+  "name": "sentinel-observability",
+  "private": true,
+  "workspaces": ["apps/api", "apps/web", "examples/telemetry-generator"],
+  "scripts": {
+    "dev:api": "npm run dev -w @sentinel/api",
+    "dev:web": "npm run dev -w @sentinel/web",
+    "worker": "npm run worker -w @sentinel/api",
+    "typecheck": "npm run typecheck -w @sentinel/api && npm run typecheck -w @sentinel/web && npm run typecheck -w @sentinel/telemetry-generator",
+    "test": "npm run test -w @sentinel/api"
+  },
+  "engines": { "node": ">=22" }
+}
